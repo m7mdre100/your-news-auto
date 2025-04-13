@@ -1,97 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Your News</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #0f0f0f; color: #fff; margin: 0; padding: 0; }
-        header { background: #1c1c1c; padding: 20px; text-align: center; }
-        h1 { color: #ff4757; margin: 0; }
-        main { padding: 20px; max-width: 900px; margin: auto; }
-        article { background: #1e1e1e; border: 1px solid #333; margin-bottom: 20px; padding: 15px; border-radius: 8px; }
-        article img { max-width: 100%; border-radius: 5px; margin-bottom: 10px; }
-        article h2 { margin-top: 0; }
-        article a { color: #1e90ff; text-decoration: none; }
-        article a:hover { text-decoration: underline; }
-        .source { font-size: 0.85em; color: #aaa; margin-top: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your News</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      margin: 10px 0 0;
+      color: #d62828;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    article {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    article img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    article h2 {
+      margin: 15px;
+      font-size: 1.2em;
+    }
+
+    article a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    article p {
+      margin: 0 15px 10px;
+      line-height: 1.4em;
+      color: #555;
+    }
+
+    .source {
+      font-size: 0.8em;
+      margin: 10px 15px 15px;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Your News" height="60"/>
-        <h1>Latest Politics & Breaking News</h1>
-    </header>
-    
-        <article>
-            
-            <h2><a href="https://www.bbc.com/news/articles/ckg17g39x41o" target="_blank">UK takes control of British Steel under emergency powers</a></h2>
-            <p>Business Secretary Jonathan Reynolds says nationalisation is "likely" next step as Parliament rushes law through....</p>
-            <div class="source">BBC Politics - Sat, 12 Apr 2025 19:26:58 GMT</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.bbc.com/news/articles/c230g09lvv9o" target="_blank">Chris Mason: British Steel law rushed through Parliament but it is just a stop gap</a></h2>
-            <p>For all of Saturday's drama, the government's intervention so far is just a stop gap, writes our political editor....</p>
-            <div class="source">BBC Politics - Sat, 12 Apr 2025 23:39:53 GMT</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.bbc.com/news/articles/c24qv74nzq2o" target="_blank">Rail minister admits using phone while driving vintage bus</a></h2>
-            <p>Lord Hendy has apologised in full for the "error of judgement" and will reportedly accept the sanctions....</p>
-            <div class="source">BBC Politics - Sat, 12 Apr 2025 20:33:26 GMT</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.bbc.com/news/articles/cj6817zlglwo" target="_blank">Lib Dem MP refused entry to Hong Kong</a></h2>
-            <p>Party leader Sir Ed Davey urges the foreign secretary to summon the Chinese ambassador for an explanation....</p>
-            <div class="source">BBC Politics - Sat, 12 Apr 2025 23:00:51 GMT</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.bbc.com/news/articles/c93gk5n8v3go" target="_blank">Grangemouth closure 'not comparable' to British Steel, MPs told</a></h2>
-            <p>SNP Westminster leader Stephen Flynn challenged the UK government over similarities to the closure of the Scottish oil refinery...</p>
-            <div class="source">BBC Politics - Sat, 12 Apr 2025 13:13:28 GMT</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.aljazeera.com/sports/2025/4/13/ennis-downs-stanionis-to-unify-boxings-ibf-wba-welterweight-belts?traffic_source=rss" target="_blank">Ennis downs Stanionis to unify boxing’s IBF, WBA welterweight belts</a></h2>
-            <p>American Ennis is crowned the best fighter in the division after stopping Lithuania&#039;s Stanionis after six rounds....</p>
-            <div class="source">Al Jazeera English - Sun, 13 Apr 2025 08:30:56 +0000</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.aljazeera.com/news/2025/4/13/trump-admin-says-wrongly-deported-man-is-alive-and-secure-in-el-salvador?traffic_source=rss" target="_blank">Kilmar Abrego Garcia ‘alive, secure’ in El Salvador: Trump administration</a></h2>
-            <p>Trump administration tells court Kilmar Abrego Garcia is confined in a notorious prison but keeps mum on his return....</p>
-            <div class="source">Al Jazeera English - Sun, 13 Apr 2025 08:16:51 +0000</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.aljazeera.com/program/newsfeed/2025/4/13/trump-tells-reporters-iran-nuclear-talks-are-going?traffic_source=rss" target="_blank">Trump tells reporters Iran nuclear talks are ‘going okay’</a></h2>
-            <p>US President Donald Trump says nuclear negotiations with Iran are ‘going okay’, after delegates met in Oman....</p>
-            <div class="source">Al Jazeera English - Sun, 13 Apr 2025 07:48:37 +0000</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.aljazeera.com/news/2025/4/13/israeli-forces-bomb-al-ahli-hospital-in-gaza-forcing-patients-to-flee?traffic_source=rss" target="_blank">Israeli forces bomb al-Ahli Hospital in Gaza, forcing patients to flee</a></h2>
-            <p>The missile destroyed parts of the hospital, including its emergency department....</p>
-            <div class="source">Al Jazeera English - Sun, 13 Apr 2025 07:46:28 +0000</div>
-        </article>
-        
-        <article>
-            
-            <h2><a href="https://www.aljazeera.com/sports/2025/4/13/golf-rory-mcilroy-leads-the-masters-closes-in-on-career-grand-slam?traffic_source=rss" target="_blank">Golf: Rory McIlroy leads the Masters; closes in on career Grand Slam</a></h2>
-            <p>McIlroy sets up a final round showdown with DeChambea as the Northern Irishman seeks an elusive first Green Jacket....</p>
-            <div class="source">Al Jazeera English - Sun, 13 Apr 2025 07:10:00 +0000</div>
-        </article>
-        
+  <header>
+    <img src="logo.png" alt="Your News Logo"/>
+    <h1>Latest Politics & Breaking News</h1>
+  </header>
+  <main>
+    <!-- Articles will be injected here by Python -->
+  </main>
 </body>
 </html>
