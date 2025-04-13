@@ -1,7 +1,9 @@
 name: Auto Update News
 
 on:
-  
+  schedule:
+    - cron: '*/10 * * * *'  # كل 10 دقائق
+  workflow_dispatch:
 
 jobs:
   build:
@@ -27,5 +29,8 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add index.html
-          git commit -m "Update news with images"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Update news with images"
+            git push
+          else
+            echo "No changes to commit."
