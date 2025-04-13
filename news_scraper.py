@@ -1,10 +1,15 @@
 import feedparser
+import re
 
 feeds = {
     "BBC Politics": "http://feeds.bbci.co.uk/news/politics/rss.xml",
     "Al Jazeera English": "https://www.aljazeera.com/xml/rss/all.xml",
     "Reuters World News": "http://feeds.reuters.com/Reuters/worldNews"
 }
+
+def extract_image(summary):
+    match = re.search(r'<img[^>]+src="([^"]+)"', summary)
+    return match.group(1) if match else None
 
 html_start = '''
 <!DOCTYPE html>
@@ -13,13 +18,16 @@ html_start = '''
     <meta charset="UTF-8">
     <title>Your News</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #111; color: #fff; margin: 0; padding: 20px; }
-        header { background: #222; padding: 20px; text-align: center; }
-        h1 { color: #f00; }
-        article { border-bottom: 1px solid #444; padding: 10px 0; }
-        a { color: #0af; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .source { font-size: 0.8em; color: #aaa; }
+        body { font-family: Arial, sans-serif; background-color: #0f0f0f; color: #fff; margin: 0; padding: 0; }
+        header { background: #1c1c1c; padding: 20px; text-align: center; }
+        h1 { color: #ff4757; margin: 0; }
+        main { padding: 20px; max-width: 900px; margin: auto; }
+        article { background: #1e1e1e; border: 1px solid #333; margin-bottom: 20px; padding: 15px; border-radius: 8px; }
+        article img { max-width: 100%; border-radius: 5px; margin-bottom: 10px; }
+        article h2 { margin-top: 0; }
+        article a { color: #1e90ff; text-decoration: none; }
+        article a:hover { text-decoration: underline; }
+        .source { font-size: 0.85em; color: #aaa; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -30,20 +38,30 @@ html_start = '''
     <main>
 '''
 
-html_end = '</main></body></html>'
-articles_html = ""
+html_end = '''
+    </main>
+</body>
+</html>
+'''
 
+articles_html = ""
 for source, url in feeds.items():
     feed = feedparser.parse(url)
     for entry in feed.entries[:5]:
         title = entry.title
         link = entry.link
-        summary = entry.get("summary", "")[:300]
         published = entry.get("published", "")
+        summary = entry.get("summary", "")
+        image_url = extract_image(summary)
+
+        image_tag = f'<img src="{image_url}" alt="News image">' if image_url else ""
+        short_summary = re.sub('<[^<]+?>', '', summary)[:300]
+
         articles_html += f'''
         <article>
+            {image_tag}
             <h2><a href="{link}" target="_blank">{title}</a></h2>
-            <p>{summary}</p>
+            <p>{short_summary}...</p>
             <div class="source">{source} - {published}</div>
         </article>
         '''
